@@ -3,8 +3,8 @@ import Link from 'next/link'
 const PastProjects = () => {
   return (
     <div>Past projects page
-      <Link href="/home">
-        <button>Home</button>
+      <Link href="/about">
+        <button>Go to About</button>
       </Link>
       <Link href="/sponsor">
         <button>Go to Sponsors</button>

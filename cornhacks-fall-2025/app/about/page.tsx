@@ -4,7 +4,7 @@ import Link from 'next/link'
 const HomePage = () => {
   return (
     <div>
-      Home Page
+      About Page
       <Link href="/past-projects">
         <button>Go to Past Projects</button>
       </Link>

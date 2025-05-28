@@ -6,8 +6,8 @@ const Sponsor = () => {
       <Link href="/past-projects">
         <button>Go to Past Projects</button>
       </Link>
-      <Link href="/home">
-        <button>Go to Home</button>
+      <Link href="/about">
+        <button>Go to About</button>
       </Link>
     </div>
     
