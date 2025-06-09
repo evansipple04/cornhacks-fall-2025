@@ -6,6 +6,9 @@ import styles from './styles/layout.module.css'
 export const metadata = {
   title: 'Cornhacks',
   description: 'Hackathon site',
+  icons: {
+    icon: '/cornhacks.ico',
+  },
 };
 
 interface RootLayoutProps {
