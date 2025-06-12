@@ -32,4 +32,21 @@
 .active {
   background-color: #333333;
   font-weight: 500;
+}
+
+.registerButton {
+  margin-top: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #4a4a4a;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.registerButton:hover {
+  background-color: #666666;
 } 

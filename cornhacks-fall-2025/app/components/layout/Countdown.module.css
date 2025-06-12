@@ -1,0 +1,44 @@
+.countdown {
+  margin-top: 2rem;
+  padding: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.timeGrid {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.timeUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.15rem;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.number {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.5rem;
+  margin-top: 0.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+} 

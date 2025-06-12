@@ -22,4 +22,21 @@
   line-height: 1.6;
   margin-bottom: 2rem;
   font-weight: 400;
+}
+
+.emailButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #1a1a1a;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.emailButton:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
 } 

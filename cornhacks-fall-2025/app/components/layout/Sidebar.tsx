@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Sidebar.module.css';
+import Countdown from './Countdown';
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -27,6 +28,10 @@ export default function Sidebar() {
           </Link>
         ))}
       </nav>
+      <Countdown />
+      <Link href="/register" className={styles.registerButton}>
+        Register
+      </Link>
     </aside>
   );
 }
