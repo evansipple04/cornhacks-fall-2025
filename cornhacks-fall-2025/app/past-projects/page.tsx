@@ -70,7 +70,7 @@ const PastProjects = () => {
               <h2 className="text-4xl font-bold mb-8">{year} Projects</h2>
               <div className="w-full max-w-[1200px] flex flex-wrap justify-center">
                 {sampleProjects.map((project, index) => (
-                  <div key={index} className="w-[400px] h-[550px] flex items-center justify-center">
+                  <div key={index} className="w-[380px] h-[510px] flex items-center justify-center">
                     <ProjectCard
                       imageUrl="/previous_event.png"
                       title={project.title}
@@ -90,7 +90,15 @@ const PastProjects = () => {
       </div>
       {expandedCardId && (
         <div 
-          className="fixed inset-0 bg-black/70 z-[9999]"
+          className="fixed inset-0 z-[9999] pointer-events-auto"
+          style={{ 
+            background: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%)',
+            position: 'fixed', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            bottom: 0 
+          }}
           onClick={handleCardClose}
         />
       )}
