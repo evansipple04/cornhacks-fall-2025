@@ -1,17 +1,26 @@
 'use client';
 
-import React from 'react'
+import React, { useState } from 'react'
 import YearNavigation from '../components/past-projects/YearNavigation'
 import ProjectCard from '../components/past-projects/ProjectCard'
 
 const PastProjects = () => {
   const years = [2025, 2024, 2023, 2022, 2021];
+  const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
 
   const handleYearClick = (year: number) => {
     const element = document.getElementById(`year-${year}`);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleCardExpand = (year: number, index: number) => {
+    setExpandedCardId(`${year}-${index}`);
+  };
+
+  const handleCardClose = () => {
+    setExpandedCardId(null);
   };
 
   const sampleProjects = [
@@ -48,33 +57,52 @@ const PastProjects = () => {
   ];
 
   return (
-    <div className="w-full">
-      <YearNavigation years={years} onYearClick={handleYearClick} />
-      <div className="p-8 space-y-16">
-        {years.map((year) => (
-          <section 
-            key={year} 
-            id={`year-${year}`}
-            className="min-h-screen flex flex-col items-center"
-          >
-            <h2 className="text-4xl font-bold mb-8">{year} Projects</h2>
-            <div className="w-full max-w-[1200px] flex flex-wrap justify-center">
-              {sampleProjects.map((project, index) => (
-                <div key={index} className="w-[400px] h-[550px] flex items-center justify-center">
-                  <ProjectCard
-                    imageUrl="/previous_event.png"
-                    title={project.title}
-                    description={project.description}
-                    linkUrl={`/projects/${year}/${index + 1}`}
-                    linkText={project.linkText}
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-        ))}
+    <>
+      <div className="w-full">
+        <YearNavigation years={years} onYearClick={handleYearClick} />
+        <div className="p-8 space-y-16">
+          {years.map((year) => (
+            <section 
+              key={year} 
+              id={`year-${year}`}
+              className="min-h-screen flex flex-col items-center"
+            >
+              <h2 className="text-4xl font-bold mb-8">{year} Projects</h2>
+              <div className="w-full max-w-[1200px] flex flex-wrap justify-center">
+                {sampleProjects.map((project, index) => (
+                  <div key={index} className="w-[380px] h-[510px] flex items-center justify-center">
+                    <ProjectCard
+                      imageUrl="/previous_event.png"
+                      title={project.title}
+                      description={project.description}
+                      linkUrl={`/projects/${year}/${index + 1}`}
+                      linkText={project.linkText}
+                      onExpand={() => handleCardExpand(year, index)}
+                      isExpanded={expandedCardId === `${year}-${index}`}
+                      onClose={handleCardClose}
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
       </div>
-    </div>
+      {expandedCardId && (
+        <div 
+          className="fixed inset-0 z-[9999] pointer-events-auto"
+          style={{ 
+            background: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%)',
+            position: 'fixed', 
+            top: 0, 
+            left: 0, 
+            right: 0, 
+            bottom: 0 
+          }}
+          onClick={handleCardClose}
+        />
+      )}
+    </>
   )
 }
 
