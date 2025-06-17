@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface ExpandedProjectCardProps {
   imageUrl: string;
@@ -8,6 +9,7 @@ interface ExpandedProjectCardProps {
   linkUrl: string;
   linkText: string;
   onClose: () => void;
+  originalPosition: DOMRect;
 }
 
 export default function ExpandedProjectCard({
@@ -17,10 +19,21 @@ export default function ExpandedProjectCard({
   linkUrl,
   linkText,
   onClose,
+  originalPosition,
 }: ExpandedProjectCardProps) {
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  useEffect(() => {
+    // Start animation
+    setIsAnimating(true);
+    // End animation after transition
+    const timer = setTimeout(() => setIsAnimating(false), 50);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div 
-      className="fixed top-1/2 left-[calc(50%+120px)] -translate-x-1/2 -translate-y-1/2 z-[10000]"
+      className="fixed inset-0 z-[10000]"
       style={{ width: '100vw', height: '100vh' }}
       onClick={onClose}
     >
@@ -31,12 +44,15 @@ export default function ExpandedProjectCard({
           height: 'calc(80vw * 1.43)',
           maxHeight: '90vh',
           maxWidth: 'calc(90vh / 1.43)',
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
+          position: 'fixed',
+          top: isAnimating ? originalPosition.top : '50%',
+          left: isAnimating ? originalPosition.left : 'calc(50% + 125px)',
+          transform: isAnimating 
+            ? `translate(0, 0) scale(${originalPosition.width / (window.innerWidth * 0.8)})`
+            : 'translate(-50%, -50%)',
           backgroundColor: 'white',
-          boxShadow: '0 25px 30px -5px rgb(0 0 0 / 0.2), 0 10px 15px -6px rgb(0 0 0 / 0.2)'
+          boxShadow: '0 25px 30px -5px rgb(0 0 0 / 0.2), 0 10px 15px -6px rgb(0 0 0 / 0.2)',
+          transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
         }}
         onClick={(e) => e.stopPropagation()}
       >

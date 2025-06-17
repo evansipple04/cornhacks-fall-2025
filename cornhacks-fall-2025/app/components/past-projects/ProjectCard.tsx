@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ExpandedProjectCard from './ExpandedProjectCard';
+import { useRef } from 'react';
 
 interface ProjectCardProps {
   imageUrl: string;
@@ -23,9 +24,12 @@ export default function ProjectCard({
   isExpanded,
   onClose,
 }: ProjectCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
   return (
     <>
       <div 
+        ref={cardRef}
         className="w-[330px] h-[480px] rounded-[2rem] overflow-hidden bg-white border-2 border-gray-200 hover:scale-[1.02] flex flex-col cursor-pointer transition-all duration-300"
         style={{
           boxShadow: '0 25px 30px -5px rgb(0 0 0 / 0.2), 0 10px 15px -6px rgb(0 0 0 / 0.2)'
@@ -60,7 +64,7 @@ export default function ProjectCard({
         </div>
       </div>
 
-      {isExpanded && (
+      {isExpanded && cardRef.current && (
         <ExpandedProjectCard
           imageUrl={imageUrl}
           title={title}
@@ -68,6 +72,7 @@ export default function ProjectCard({
           linkUrl={linkUrl}
           linkText={linkText}
           onClose={onClose}
+          originalPosition={cardRef.current.getBoundingClientRect()}
         />
       )}
     </>
