@@ -30,7 +30,7 @@ export default function ProjectCard({
     <>
       <div 
         ref={cardRef}
-        className="w-[330px] h-[480px] rounded-[2rem] overflow-hidden bg-white border-2 border-gray-200 hover:scale-[1.02] flex flex-col cursor-pointer transition-all duration-300"
+        className="w-[330px] h-[480px] rounded-[1rem] overflow-hidden bg-white hover:scale-[1.02] flex flex-col cursor-pointer transition-all duration-300"
         style={{
           boxShadow: '0 25px 30px -5px rgb(0 0 0 / 0.2), 0 10px 15px -6px rgb(0 0 0 / 0.2)'
         }}

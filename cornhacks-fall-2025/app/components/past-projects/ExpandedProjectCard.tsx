@@ -38,7 +38,7 @@ export default function ExpandedProjectCard({
       onClick={onClose}
     >
       <div 
-        className="rounded-[2rem] overflow-hidden bg-white border-2 border-gray-200 flex flex-col relative"
+        className="rounded-[1rem] overflow-hidden bg-white flex flex-col relative"
         style={{ 
           width: '80vw',
           height: 'calc(80vw * 1.43)',
