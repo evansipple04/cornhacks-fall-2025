@@ -1,0 +1,9 @@
+@keyframes corn-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+  100% { transform: translateY(0); }
+}
+
+.corn-float {
+  animation: corn-float 2.5s ease-in-out infinite;
+}

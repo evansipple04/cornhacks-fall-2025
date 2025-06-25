@@ -12,7 +12,6 @@ export default function Sidebar() {
     { href: '/', label: 'Home' },
     { href: '/past-projects', label: 'Past Projects' },
     { href: '/sponsor', label: 'Sponsor' },
-    { href: '/about', label: 'About' },
   ];
 
   return (
