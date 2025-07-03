@@ -54,13 +54,25 @@ export default function ProjectCard({
           <p className="text-gray-600 text-base mb-4 overflow-y-auto flex-grow">
             {description}
           </p>
-          <Link 
-            href={linkUrl}
-            className="inline-block text-blue-600 hover:text-blue-800 font-medium flex-shrink-0"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {linkText} →
-          </Link>
+          {linkUrl.startsWith('http') ? (
+            <a
+              href={linkUrl}
+              className="inline-block text-blue-600 hover:text-blue-800 font-medium flex-shrink-0"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {linkText} →
+            </a>
+          ) : (
+            <Link 
+              href={linkUrl}
+              className="inline-block text-blue-600 hover:text-blue-800 font-medium flex-shrink-0"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {linkText} →
+            </Link>
+          )}
         </div>
       </div>
 

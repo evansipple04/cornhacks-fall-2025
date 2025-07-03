@@ -1,6 +1,7 @@
 // app/layout.tsx
 import './globals.css'
 import Sidebar from './components/layout/Sidebar'
+import Navbar from './components/layout/Navbar'
 import styles from './styles/layout.module.css'
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={styles.body}>
+        <Navbar />
         <Sidebar />
         <main className={styles.main}>
           {children}

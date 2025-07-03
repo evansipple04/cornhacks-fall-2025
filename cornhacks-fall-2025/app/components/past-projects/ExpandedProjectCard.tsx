@@ -82,13 +82,25 @@ export default function ExpandedProjectCard({
           >
             {description}
           </p>
-          <Link 
-            href={linkUrl}
-            className="inline-block text-blue-600 hover:text-blue-800 font-medium flex-shrink-0"
-            style={{ fontSize: '1.125rem' }}
-          >
-            {linkText} →
-          </Link>
+          {linkUrl.startsWith('http') ? (
+            <a
+              href={linkUrl}
+              className="inline-block text-blue-600 hover:text-blue-800 font-medium flex-shrink-0"
+              style={{ fontSize: '1.125rem' }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {linkText} →
+            </a>
+          ) : (
+            <Link 
+              href={linkUrl}
+              className="inline-block text-blue-600 hover:text-blue-800 font-medium flex-shrink-0"
+              style={{ fontSize: '1.125rem' }}
+            >
+              {linkText} →
+            </Link>
+          )}
         </div>
       </div>
     </div>

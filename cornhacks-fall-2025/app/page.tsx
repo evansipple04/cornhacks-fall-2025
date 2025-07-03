@@ -62,34 +62,39 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50">
       {/* Hero Section */}
-      <div className="text-center py-16 px-4">
-        <h1 className="text-5xl font-bold text-gray-800 mb-6">
-          Welcome to <span className="text-orange-600">CornHacks 2025</span>
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          CornHacks aims to bring some of the most talented developers from around the Midwest to join in a weekend full of hacking. Hosted at the University of Nebraska-Lincoln, over 100 participants will code all day and night to be assessed by industry professionals and compete for prizes.
-        </p>
-      </div>
-
-      {/* Previous Event Image */}
-      <div className="flex flex-col items-center mb-12">
-        <Image
-          src="/previous_event.png"
-          alt="CornHacks previous event photo"
-          width={700}
-          height={350}
-          className="rounded-lg shadow-md object-cover w-full max-w-2xl h-auto"
-          priority
-        />
+      <div className="flex flex-col md:flex-row items-center md:items-start py-16 px-4 max-w-4xl mx-auto">
+        <div className="flex-1">
+          <h1 className="text-5xl font-bold text-gray-800 mb-6 text-center md:text-left">
+            Welcome to <span className="text-orange-600">CornHacks 2025</span>
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 text-center md:text-left">
+            CornHacks aims to bring some of the most talented developers from around the Midwest to join in a weekend full of hacking. Hosted at the University of Nebraska-Lincoln, over 100 participants will code all day and night to be assessed by industry professionals and compete for prizes.
+          </p>
+        </div>
+        <div className="flex-shrink-0 mb-8 md:mb-0 md:ml-8">
+          <Image
+            src="/previous_event.png"
+            alt="CornHacks previous event photo"
+            width={180}
+            height={180}
+            className="rounded-full object-cover shadow-md"
+            priority
+          />
+        </div>
       </div>
 
       {/* FAQ Section */}
-      <div className="max-w-4xl mx-auto px-4 pb-16 p-4">
-        <div className="space-y-8">
+      <div className="max-w-4xl mx-auto px-4 pb-16">
+        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h2>
+        <div className="space-y-6">
           {faqData.map((item, index) => (
-            <div key={index} className="bg-white rounded-lg shadow border p-4 mb-4 m-2 flex flex-col md:flex-row md:items-start md:space-x-8">
-              <h3 className="font-bold text-lg text-gray-800 mb-2 md:mb-0 md:w-1/3 flex-shrink-0">{item.question}</h3>
-              <p className="text-gray-700 text-base leading-relaxed md:w-2/3">{item.answer}</p>
+            <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-shadow duration-300">
+              <div className="flex flex-col space-y-4">
+                <h3 className="font-bold text-xl text-gray-800 leading-tight">{item.question}</h3>
+                <div className="border-t border-gray-100 pt-4">
+                  <p className="text-gray-700 text-base leading-relaxed">{item.answer}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

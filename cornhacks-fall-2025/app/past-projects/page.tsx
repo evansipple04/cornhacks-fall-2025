@@ -69,20 +69,46 @@ const PastProjects = () => {
             >
               <h2 className="text-4xl font-bold mb-8">{year} Projects</h2>
               <div className="w-full max-w-[1200px] flex flex-wrap justify-center">
-                {sampleProjects.map((project, index) => (
-                  <div key={index} className="w-[380px] h-[510px] flex items-center justify-center">
-                    <ProjectCard
-                      imageUrl="/previous_event.png"
-                      title={project.title}
-                      description={project.description}
-                      linkUrl={`/projects/${year}/${index + 1}`}
-                      linkText={project.linkText}
-                      onExpand={() => handleCardExpand(year, index)}
-                      isExpanded={expandedCardId === `${year}-${index}`}
-                      onClose={handleCardClose}
-                    />
-                  </div>
-                ))}
+                {sampleProjects.map((project, index) => {
+                  let imageUrl = '/previous_event.png';
+                  if (year === 2024 && index === 0) {
+                    imageUrl = '/lucky-liars.png';
+                  }
+                  let title = project.title;
+                  if (year === 2024 && index === 0) {
+                    title = 'Lucky Liars';
+                  }
+                  if (year === 2024 && index === 1) {
+                    title = 'Even Steven Beats the Odds';
+                  }
+                  if (year === 2024 && index === 2) {
+                    title = 'Black Jack Optimal';
+                  }
+                  let linkUrl = `/projects/${year}/${index + 1}`;
+                  if (year === 2024 && index === 0) {
+                    linkUrl = 'https://github.com/BALD-rs/lucky-liars';
+                  }
+                  if (year === 2024 && index === 1) {
+                    linkUrl = 'https://github.com/Zohair-Khan/CornHacks2024';
+                  }
+                  if (year === 2024 && index === 2) {
+                    linkUrl = 'https://github.com/landrygeiger/blackjack-optimal';
+                  }
+                  return (
+                    <div key={index} className="w-[380px] h-[510px] flex items-center justify-center">
+                      <ProjectCard
+                        imageUrl={imageUrl}
+                        title={title}
+                        description={project.description}
+                        linkUrl={linkUrl}
+                        linkText={project.linkText}
+                        onExpand={() => handleCardExpand(year, index)}
+                        isExpanded={expandedCardId === `${year}-${index}`}
+                        onClose={handleCardClose}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </section>
           ))}

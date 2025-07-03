@@ -13,7 +13,7 @@ const YearNavigation: React.FC<YearNavigationProps> = ({ years, onYearClick }) =
       style={{
         borderRadius: '20px'
       }}
-      className="bg-[#1a1a1a] text-white py-16 px-2 sticky top-0 z-10 shadow-lg border-b border-gray-700 w-full"
+      className="bg-[#1a1a1a] text-white py-16 px-2 sticky top-0 z-10 shadow-2xl shadow-gray-400/40 border-b border-gray-700 w-full"
     >
       <div className="w-full flex justify-evenly items-center">
         {years.map((year, index) => (
