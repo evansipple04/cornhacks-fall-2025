@@ -16,8 +16,9 @@ const Sponsor = () => {
         </a>
       </div>
 
-      <div className="mt-[50px]">
+      <div className="w-full max-w-[1200px] mx-auto border-t border-gray-300 pt-8 mt-[50px]">
         <div className="w-full max-w-[1200px] mx-auto">
+          <h2 className="text-2xl font-semibold text-gray-700 text-center mb-8">2024 Sponsors</h2>
           <div className="flex flex-col items-center gap-16">
             {/* Top Row - 3 Logos */}
             <div className="flex justify-center gap-16">
